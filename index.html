@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德州扑克完全教程</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 德州扑克完全教程</h1>
+            <p class="subtitle">从零基础到实战高手的系统化学习</p>
+        </header>
+
+        <nav class="main-nav">
+            <button class="nav-btn active" data-module="hand-rankings">🃏 牌型排名</button>
+            <button class="nav-btn" data-module="starting-hands">📊 起手牌</button>
+            <button class="nav-btn" data-module="position-guide">🎯 位置指南</button>
+            <button class="nav-btn" data-module="odds-calculator">🧮 赔率计算</button>
+            <button class="nav-btn" data-module="quiz">📝 测验</button>
+            <button class="nav-btn" data-module="scenarios">🎲 情境模拟</button>
+        </nav>
+
+        <main>
+            <!-- 牌型排名模块 -->
+            <section id="hand-rankings" class="module active">
+                <h2>🃏 牌型排名（从大到小）</h2>
+                <div class="hand-list">
+                    <div class="hand-card" data-hand="royal-flush">
+                        <div class="hand-rank">1</div>
+                        <div class="hand-info">
+                            <h3>皇家同花顺 Royal Flush</h3>
+                            <div class="hand-example">A♠ K♠ Q♠ J♠ 10♠</div>
+                            <p>同一花色最大的顺子，德州扑克最大的牌型</p>
+                            <div class="hand-probability">出现概率：约 1/649,740</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="straight-flush">
+                        <div class="hand-rank">2</div>
+                        <div class="hand-info">
+                            <h3>同花顺 Straight Flush</h3>
+                            <div class="hand-example">9♥ 8♥ 7♥ 6♥ 5♥</div>
+                            <p>同一花色连续5张牌。A可接K后组成A-2-3-4-5（最小顺子）</p>
+                            <div class="hand-probability">出现概率：约 1/72,193</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="four-of-a-kind">
+                        <div class="hand-rank">3</div>
+                        <div class="hand-info">
+                            <h3>四条 Four of a Kind</h3>
+                            <div class="hand-example">K♠ K♥ K♦ K♣ 7♠</div>
+                            <p>四张相同点数的牌 + 任意一张。先比四条数字，再比踢子</p>
+                            <div class="hand-probability">出现概率：约 1/4,165</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="full-house">
+                        <div class="hand-rank">4</div>
+                        <div class="hand-info">
+                            <h3>葫芦 Full House</h3>
+                            <div class="hand-example">Q♠ Q♥ Q♦ 8♣ 8♠</div>
+                            <p>三条 + 一对。先比三条数字，再比对子数字</p>
+                            <div class="hand-probability">出现概率：约 1/694</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="flush">
+                        <div class="hand-rank">5</div>
+                        <div class="hand-info">
+                            <h3>同花 Flush</h3>
+                            <div class="hand-example">A♦ K♦ 9♦ 6♦ 3♦</div>
+                            <p>五张同一花色的牌（不连续）。先比最大单张，依次比较</p>
+                            <div class="hand-probability">出现概率：约 1/508</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="straight">
+                        <div class="hand-rank">6</div>
+                        <div class="hand-info">
+                            <h3>顺子 Straight</h3>
+                            <div class="hand-example">10♠ J♥ Q♦ K♣ A♠</div>
+                            <p>五张连续的牌（花色不同）。A可作最大（AKQJ10）或最小（A2345）</p>
+                            <div class="hand-probability">出现概率：约 1/254</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="three-of-a-kind">
+                        <div class="hand-rank">7</div>
+                        <div class="hand-info">
+                            <h3>三条 Three of a Kind</h3>
+                            <div class="hand-example">J♠ J♥ J♦ 9♣ 5♠</div>
+                            <p>三张相同点数的牌 + 两张不同的踢子</p>
+                            <div class="hand-probability">出现概率：约 1/47</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="two-pair">
+                        <div class="hand-rank">8</div>
+                        <div class="hand-info">
+                            <h3>两对 Two Pair</h3>
+                            <div class="hand-example">A♠ A♥ K♦ K♣ 9♠</div>
+                            <p>两个不同的对子 + 一张踢子。先比高对，再比低对，最后比踢子</p>
+                            <div class="hand-probability">出现概率：约 1/21</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="one-pair">
+                        <div class="hand-rank">9</div>
+                        <div class="hand-info">
+                            <h3>一对 One Pair</h3>
+                            <div class="hand-example">10♠ 10♥ K♦ 7♣ 3♠</div>
+                            <p>两张相同点数的牌 + 三张不同的踢子</p>
+                            <div class="hand-probability">出现概率：约 1/2.4</div>
+                        </div>
+                    </div>
+
+                    <div class="hand-card" data-hand="high-card">
+                        <div class="hand-rank">10</div>
+                        <div class="hand-info">
+                            <h3>高牌 High Card</h3>
+                            <div class="hand-example">A♠ K♥ 9♦ 6♣ 3♠</div>
+                            <p>没有任何组合，按最大单张比较</p>
+                            <div class="hand-probability">出现概率：约 1/2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>🎮 牌型识别练习</h3>
+                    <p>判断以下手牌是什么牌型：</p>
+                    <div id="hand-practice" class="practice-area">
+                        <div class="practice-cards" id="practice-cards"></div>
+                        <div class="practice-options" id="practice-options"></div>
+                        <div class="practice-feedback" id="practice-feedback"></div>
+                        <button id="next-practice" class="btn-primary">下一题</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 起手牌模块 -->
+            <section id="starting-hands" class="module">
+                <h2>📊 起手牌选择</h2>
+                <div class="hand-chart-container">
+                    <h3>起手牌强度表（10人桌）</h3>
+                    <p class="chart-legend">
+                        <span class="legend-green">🟢 强牌（加注）</span>
+                        <span class="legend-yellow">🟡 中等牌（视位置）</span>
+                        <span class="legend-red">🔴 弱牌（弃牌）</span>
+                    </p>
+                    <div class="hand-chart" id="hand-chart"></div>
+                </div>
+
+                <div class="starting-hand-tips">
+                    <h3>💡 起手牌要点</h3>
+                    <div class="tip-card">
+                        <h4>前位（UTG, UTG+1）</h4>
+                        <p>只玩最强的牌：AA, KK, QQ, AKs, AKo, JJ, TT, AQs</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>中位（MP, MP+1）</h4>
+                        <p>可以加入：99, 88, AJs, ATs, KQs, QJs</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>后位（CO, BTN）</h4>
+                        <p>范围最宽：可以玩更多同花连牌、小对子、AXs</p>
+                    </div>
+                    <div class="tip-card">
+                        <h4>盲注位（SB, BB）</h4>
+                        <p>防守范围视加注者位置而定，BB可以防守更多牌</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 位置指南模块 -->
+            <section id="position-guide" class="module">
+                <h2>🎯 位置指南</h2>
+                <div class="position-table">
+                    <div class="table-visual">
+                        <div class="seat btn-position">BTN<br><small>庄家</small></div>
+                        <div class="seat sb-position">SB<br><small>小盲</small></div>
+                        <div class="seat bb-position">BB<br><small>大盲</small></div>
+                        <div class="seat utg-position">UTG<br><small>枪口</small></div>
+                        <div class="seat utg1-position">UTG+1</div>
+                        <div class="seat mp-position">MP<br><small>中位</small></div>
+                        <div class="seat mp1-position">MP+1</div>
+                        <div class="seat co-position">CO<br><small>关位</small></div>
+                    </div>
+                </div>
+
+                <div class="position-advantages">
+                    <h3>位置优势</h3>
+                    <div class="advantage-card">
+                        <h4>✅ 后位优势</h4>
+                        <ul>
+                            <li>最后行动，可以看到所有人的动作</li>
+                            <li>可以更准确地判断对手牌力</li>
+                            <li>可以用更宽的范围加注偷盲</li>
+                            <li>控制底池大小更容易</li>
+                        </ul>
+                    </div>
+                    <div class="advantage-card">
+                        <h4>❌ 前位劣势</h4>
+                        <ul>
+                            <li>先行动，信息最少</li>
+                            <li>需要更强的牌才能入池</li>
+                            <li>容易被后位玩家利用</li>
+                            <li>难以判断对手范围</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="position-strategy">
+                    <h3>各位置策略</h3>
+                    <div class="strategy-grid">
+                        <div class="strategy-card">
+                            <h4>UTG（枪口位）</h4>
+                            <p>最紧的范围，只玩前10%的牌。被加注时需要很强的牌才能跟注。</p>
+                        </div>
+                        <div class="strategy-card">
+                            <h4>MP（中位）</h4>
+                            <p>范围略宽，可以加入中等对子和同花大牌。注意前位加注。</p>
+                        </div>
+                        <div class="strategy-card">
+                            <h4>CO（关位）</h4>
+                            <p>倒数第二个行动，可以开始偷盲。范围扩展到前30%的牌。</p>
+                        </div>
+                        <div class="strategy-card">
+                            <h4>BTN（庄家）</h4>
+                            <p>最好的位置！可以用前40%的牌加注。如果前面都弃牌，几乎可以加注任何两张牌。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 赔率计算模块 -->
+            <section id="odds-calculator" class="module">
+                <h2>🧮 赔率计算</h2>
+                
+                <div class="odds-section">
+                    <h3>底池赔率 (Pot Odds)</h3>
+                    <div class="calculator">
+                        <div class="calc-input">
+                            <label>当前底池金额：</label>
+                            <input type="number" id="pot-size" value="100" min="0">
+                        </div>
+                        <div class="calc-input">
+                            <label>对手下注金额：</label>
+                            <input type="number" id="bet-size" value="50" min="0">
+                        </div>
+                        <div class="calc-result" id="pot-odds-result">
+                            <p>底池总额：<span id="total-pot">150</span></p>
+                            <p>需要跟注：<span id="call-amount">50</span></p>
+                            <p>底池赔率：<span id="pot-odds">3:1</span></p>
+                            <p>需要胜率：<span id="required-equity">25%</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="odds-section">
+                    <h3>常见听牌概率</h3>
+                    <div class="draw-odds">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>听牌类型</th>
+                                    <th>河牌前</th>
+                                    <th>河牌后</th>
+                                    <th>说明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>同花听牌</td>
+                                    <td>35%</td>
+                                    <td>19.6%</td>
+                                    <td>4张同花，需要第5张</td>
+                                </tr>
+                                <tr>
+                                    <td>两头顺听牌</td>
+                                    <td>31.5%</td>
+                                    <td>17.4%</td>
+                                    <td>如789T，需要6或J</td>
+                                </tr>
+                                <tr>
+                                    <td>卡顺听牌</td>
+                                    <td>16.5%</td>
+                                    <td>8.7%</td>
+                                    <td>如78T9，需要9</td>
+                                </tr>
+                                <tr>
+                                    <td>两对听葫芦</td>
+                                    <td>16.5%</td>
+                                    <td>8.7%</td>
+                                    <td>两对需要变成葫芦</td>
+                                </tr>
+                                <tr>
+                                    <td>三条听葫芦/四条</td>
+                                    <td>27.8%</td>
+                                    <td>15.2%</td>
+                                    <td>三条可以提升</td>
+                                </tr>
+                                <tr>
+                                    <td>同花顺听牌</td>
+                                    <td>54.1%</td>
+                                    <td>32.6%</td>
+                                    <td>同时听同花和顺子</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="odds-section">
+                    <h3>快速心算技巧</h3>
+                    <div class="mental-math">
+                        <div class="math-card">
+                            <h4>Rule of 4</h4>
+                            <p>翻牌后听牌数量 × 4 ≈ 河牌成牌概率</p>
+                            <p>例：9张同花出路 × 4 = 36%（实际35%）</p>
+                        </div>
+                        <div class="math-card">
+                            <h4>Rule of 2</h4>
+                            <p>转牌后听牌数量 × 2 ≈ 河牌成牌概率</p>
+                            <p>例：9张同花出路 × 2 = 18%（实际19.6%）</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 测验模块 -->
+            <section id="quiz" class="module">
+                <h2>📝 知识测验</h2>
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quiz-progress"></div>
+                        </div>
+                        <span id="quiz-counter">1/10</span>
+                    </div>
+                    
+                    <div class="quiz-question" id="quiz-question">
+                        <h3 id="question-text"></h3>
+                        <div class="quiz-options" id="quiz-options"></div>
+                    </div>
+                    
+                    <div class="quiz-feedback" id="quiz-feedback"></div>
+                    <button id="next-question" class="btn-primary" style="display:none;">下一题</button>
+                    
+                    <div class="quiz-score" id="quiz-score" style="display:none;">
+                        <h3>测验完成！</h3>
+                        <p>正确率：<span id="score-percent"></span></p>
+                        <p>答对：<span id="score-correct"></span>/<span id="score-total"></span></p>
+                        <button id="restart-quiz" class="btn-primary">重新测验</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 情境模拟模块 -->
+            <section id="scenarios" class="module">
+                <h2>🎲 情境模拟</h2>
+                <div class="scenario-container">
+                    <div class="scenario-info" id="scenario-info">
+                        <div class="scenario-cards">
+                            <h3>你的手牌</h3>
+                            <div id="my-hand" class="hand-display"></div>
+                        </div>
+                        <div class="scenario-cards">
+                            <h3>公共牌</h3>
+                            <div id="community-cards" class="hand-display"></div>
+                        </div>
+                        <div class="scenario-details">
+                            <p><strong>位置：</strong><span id="my-position"></span></p>
+                            <p><strong>底池：</strong><span id="scenario-pot"></span></p>
+                            <p><strong>行动：</strong><span id="scenario-action"></span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="scenario-decision">
+                        <h3>你会怎么行动？</h3>
+                        <div class="decision-buttons">
+                            <button class="btn-fold" id="btn-fold">弃牌 Fold</button>
+                            <button class="btn-call" id="btn-call">跟注 Call</button>
+                            <button class="btn-raise" id="btn-raise">加注 Raise</button>
+                        </div>
+                    </div>
+                    
+                    <div class="scenario-feedback" id="scenario-feedback"></div>
+                    <button id="next-scenario" class="btn-primary" style="display:none;">下一情境</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>德州扑克完全教程 | 系统化学习 | 持续更新中</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
